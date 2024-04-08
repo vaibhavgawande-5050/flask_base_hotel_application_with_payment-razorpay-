@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAM Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+   <style>  body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #222;
+        color: #fff;
+    }
+    
+    header {
+    background-image: url('../static/images/tables.jpg');
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header nav {
+    margin-top: 10px;
+}
+    
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+        color: #ffc107;
+    }
+    
+    .banner {
+        background-image: url('../static/images/bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .banner h2 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .banner p {
+        font-size: 24px;
+        margin-bottom: 40px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .btn {
+        background-color: #ffc107;
+        color: #333;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 20px;
+        transition: background-color 0.3s;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn:hover {
+        background-color: #ffdb6d;
+    }
+    
+    footer {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+  
+
+        .admin-button {
+            align-items: flex-start;
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-right: auto;
+            margin-bottom: 10px;
+        }
+
+        .admin-button:hover {
+            background-color: #ffdb6d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AAM Restaurant</h1>
+        <a href="{{ url_for('admin_login') }}" class="admin-button">Admin</a>
+        <nav>
+            <div id="navbarContent">
+                <div id="tableNumber">Table.No: TBL01</div>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="tel:+91%8767860213">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <img src="/static/images/chef.jpg">
+        <h2>Experience the Flavors of Authenticity</h2>
+        <p>Discover the best of Indian cuisine in a cozy and vibrant atmosphere.</p>
+        <a href="{{ url_for('menu') }}" class="btn">View Menu</a>
+    </div>
+
+    <footer>
+        &copy; 2024 AAM Restaurant. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #1c1c1c;
+            --text-color: #f2f2f2;
+            --button-color: #4CAF50;
+            --button-hover: #45a049;
+            --input-border: #ccc;
+            --input-bg: #2c2c2c;
+        }
+
+        .dark-mode {
+            --bg-color: #f2f2f2;
+            --text-color: #1c1c1c;
+            --button-color: #45a049;
+            --button-hover: #4CAF50;
+            --input-border: #1c1c1c;
+            --input-bg: #e6e6e6;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .button {
+            background-color: var(--button-color);
+            border: none;
+            color: var(--text-color);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .input-box {
+            padding: 12px 20px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 300px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">&#9680;</div>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <a href="{{ url_for('orders') }}"><button class="button">View Database</button></a>
+        <form method="POST" action="{{ url_for('admin_dashboard') }}">
+            <input class="input-box" type="number" name="order_id" placeholder="Enter ID to delete">
+            <input class="input-box" type="number" id="confirm-id" placeholder="Confirm ID to delete">
+            <button class="button" type="submit">Delete Order</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

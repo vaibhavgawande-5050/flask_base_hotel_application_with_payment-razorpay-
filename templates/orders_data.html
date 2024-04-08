@@ -1,0 +1,112 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Orders</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Orders</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Customer Email</th>
+                <th>Customer Contact</th>
+                <th>Payment ID</th>
+                <th>Razorpay Signature</th>
+                <th>Total Amount</th>
+                <th>Order Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order[0] }}</td>
+                <td>{{ order[1] }}</td>
+                <td>{{ order[2] }}</td>
+                <td>{{ order[3] }}</td>
+                <td>{{ order[4] }}</td>
+                <td>{{ order[5] }}</td>
+                <td>{{ order[6] }}</td>
+                <td>{{ order[7] }}</td>
+                <td>{{ order[8] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Orders</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Customer Email</th>
+                <th>Customer Contact</th>
+                <th>Payment ID</th>
+                <th>Razorpay Signature</th>
+                <th>Total Amount</th>
+                <th>Order Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order[0] }}</td>
+                <td>{{ order[1] }}</td>
+                <td>{{ order[2] }}</td>
+                <td>{{ order[3] }}</td>
+                <td>{{ order[4] }}</td>
+                <td>{{ order[5] }}</td>
+                <td>{{ order[6] }}</td>
+                <td>{{ order[7] }}</td>
+                <td>{{ order[8] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

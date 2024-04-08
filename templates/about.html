@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAM Restaurant</title>
+    
+    <style>
+/* CSS styles for the about page */
+
+/* Added CSS for responsive design */
+@media only screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .container {
+        width: 100%;
+    }
+
+    .about-images {
+        margin-left: 0;
+    }
+
+    .about-images img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+body {
+    background-color: #f5f5dc; /* Light Beige */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffc107;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.about {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.about-images {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust the height as needed */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.about-images img {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Align left edge of the image to the center */
+    transform: translateX(-50%); /* Move the image back by half of its width */
+    width: 33.33%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.8s;
+    text-align: center;
+    animation: imageFade 10s infinite; /* CSS animation */
+}
+
+.about-images img:not(:first-child) {
+    opacity: 0;
+}
+
+/* Footer styles, if any */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    clear: both;
+}
+
+/* CSS animation for image fading */
+@keyframes imageFade {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+#navbarContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#tableNumber, #orderDetailsBtn {
+    background-color: #ffc107;
+    color: #343a40;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: x-large;
+}
+</style>
+
+</head>
+<body>
+    <header>
+        <h1>AAM Restaurant</h1>
+        <nav>
+            <div id="navbarContent">
+                <div id = "tableNumber">Table.No: TBL01</div>
+                <a href="{{ url_for('order') }}" id="orderDetailsBtn">Order Details</a>
+                </div>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="tel:9021124589">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="about">
+        <h2>About Us</h2>
+        <p>Welcome to AAM Restaurant, where flavors meet traditions. We take pride in offering authentic dishes that have been passed down through generations. Our journey started decades ago with a passion for cooking and a love for sharing the rich culture of our homeland.</p>
+        <div class="about-images">
+            <img src="/static/images/inner.jpg" alt="Customer Image">
+            <img src="/static/images/customer.jpg" alt="Customer Image">
+            <img src="/static/images/kitchen.jpg" alt="Kitchen Image">
+            <img src="/static/images/staff.jpg" alt="Staff Image">
+            <img src="/static/images/review.jpg" alt="Review Image">
+            <img src="/static/images/outer.jpg" alt="Outer Image">
+        </div>
+        <p>At AAM Restaurant, we believe in using the freshest ingredients and traditional cooking methods to bring out the true essence of each dish. Whether you're craving classic favorites or seeking new culinary adventures, our menu has something for everyone.</p>
+        <p>Come dine with us and experience the warmth of our hospitality, the aroma of our spices, and the richness of our flavors. We look forward to serving you a memorable dining experience!</p>
+    </div>
+
+    <footer>
+        &copy; 2024 AAM Restaurant. All rights reserved.
+    </footer>
+</body>
+</html>

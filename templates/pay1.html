@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AAM restro payment page</title>
+</head>
+<body>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "rzp_test_LFnpHYpUR9cUXG",
+            "amount": "{{ amount }}",
+            "currency": "INR",
+            "name": "AAM Restro",
+            "description": "Restro transcation",
+            "image": "https://example.com/your_logo",
+            "order_id": "{{ order_id }}",
+            "handler": function (response) {
+                
+                var paymentData = {
+                    razorpay_payment_id: response.razorpay_payment_id,
+                    razorpay_order_id: response.razorpay_order_id,
+                    razorpay_signature: response.razorpay_signature,
+                    
+                };
+                // Send the payment data to the server
+                fetch('/payment_success', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(paymentData)
+                })
+                .then(response => {
+                    // Handle the server response
+                    console.log('Payment successful:', response);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            },
+            "prefill": {
+                "name": "{{ name }}",
+                "email": "{{ email }}",
+                "contact": "{{ contact }}"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open(); // Open the Razorpay checkout immediately after creating the instance
+
+        rzp1.on('payment.failed', function (response) {
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+        });
+    </script>
+</body>
+</html>

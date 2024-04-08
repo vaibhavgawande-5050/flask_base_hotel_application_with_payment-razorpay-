@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - AAM Restaurant</title>
+    <style>
+        /* Dark mode styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #343a40;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f1f1f1;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .payment-failed {
+            background-color: #2d2d2d;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .payment-failed h2 {
+            color: #FF5733;
+            margin-top: 0;
+        }
+
+        .payment-failed p {
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container button {
+            margin: 0 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ffc107;
+            color: #343a40;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #ffdb6d;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .payment-failed {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>AAM Restaurant</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="tel:9021124589">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="payment-failed">
+            <h2>Payment Failed</h2>
+            <p>Unfortunately, your payment was not successful. Please try again.</p>
+            <form action="{{ url_for('menu') }}" method="POST">
+                <div class="button-container">
+                    <button type="submit">go to menu</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 AAM Restaurant. All rights reserved.
+    </footer>
+</body>
+
+</html>
